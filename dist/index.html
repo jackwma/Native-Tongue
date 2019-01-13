@@ -19,11 +19,11 @@
       <div class="col-md-6 mx-auto">
         <p class="lead">Say The Given Word Within
           <span class="text-success" id="seconds">currentLength</span> Seconds:</p>
-          <h2 class="display-2 mb-5" id="current-word">hello</h2>
-            <div class="speech">
-              <input type="text" name="q" id="transcript" placeholder="Speak" />
-              <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
-            </div>
+            <h2 class="display-2 mb-5" id="current-word">words</h2>
+              <div class="container"> <!--page container -->
+                <div class="text-box" contenteditable="true"></div> <!--text box which will contain spoken text -->
+                <i class="fa fa-microphone"></i> <!-- microphone icon to be clicked before speaking -->
+              </div>
         <h4 classs="mt-3" id="message"></h4>
 
         <!-- Time & Score Columns -->
@@ -58,6 +58,8 @@
   .speech img {float: right; width: 40px }
 </style>
 
+<!-- Timer -->
+<script src="js/main.js"></script>
 
 <!-- HTML5 Speech Recognition API -->
 <script>
@@ -67,7 +69,7 @@
 
       var recognition = new webkitSpeechRecognition();
 
-      recognition.continuous = false;
+      recognition.continuous = true;
       recognition.interimResults = false;
 
       recognition.lang = "en-US";
@@ -80,14 +82,13 @@
         document.getElementById('labnol').submit();
       };
 
-      recognition.onerror = function(e) {
+      <recognition.onerror = function(e) {
         recognition.stop();
       }
 
     }
   }
 </script>
-  <!--<script src="js/main.js"></script>-->
 </body>
 
 </html>
